@@ -1,11 +1,10 @@
 let adminEmail = "juan@gmail.com";
 let adminPass = "juan1234";
-let logueado = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-    if(localStorage.getItem("logged") != null){
+    if(isLogged()){
         alert("Ya esta logueado");
-        window.location.href = "index.html";
+        window.location.href = "Index.html";
     }
 });
 
@@ -26,7 +25,8 @@ document.querySelector("#form-login").addEventListener("submit", function(event)
     } else if (email == adminEmail && password == adminPass) {
         const success = document.getElementById("success");
         success.style.display = "block";
-        localStorage.setItem("logueado", true);        
+        localStorage.setItem("logueado", "true");  
+        window.location.href = "Admin.html";      
 
         setTimeout(() => {
             success.style.display = "none";

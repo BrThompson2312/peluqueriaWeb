@@ -15,14 +15,7 @@ document.querySelector("#form-login").addEventListener("submit", function(event)
     let email = form.elements.txtEmail.value;
     let password = form.elements.txtPassword.value; 
     
-    if(email != adminEmail || password != adminPass){
-        const error = document.getElementById("error1");
-        error.style.display = "block";
-
-        setTimeout(() => {
-            error.style.display = "none";
-        }, 3000);
-    } else if (email == adminEmail && password == adminPass) {
+    if (email == adminEmail && password == adminPass) {
         const success = document.getElementById("success");
         success.style.display = "block";
         localStorage.setItem("logueado", "true");  
@@ -31,6 +24,12 @@ document.querySelector("#form-login").addEventListener("submit", function(event)
         setTimeout(() => {
             success.style.display = "none";
         }, 3000);
-    }
+    } else {
+        const error = document.getElementById("error1");
+        error.style.display = "block";
 
+        setTimeout(() => {
+            error.style.display = "none";
+        }, 3000);
+    }
 });

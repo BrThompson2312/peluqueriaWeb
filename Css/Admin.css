@@ -1,0 +1,31 @@
+/* Definición de variables globales */
+:root {
+  --color-principal: #2C2C2C;
+  --color-secundario: #D9D9D9;
+  --color-texto: #FFFFFF;
+}
+
+
+#GestReservas{
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+}
+
+#DivReservas{
+    padding: 35px;
+}
+
+.tamCard{
+    width: auto;
+    margin-top: 15px;
+}
+
+.h1{
+    text-align: center;
+}
+
+.filtrar{
+    width: auto;
+    border-radius: 50px;
+}
+    

@@ -1,102 +1,92 @@
 
-let barberos = [
-  { nombre: "Carlos" },
-  { nombre: "Luis" },
-  { nombre: "Martín" }
-];
-
 
 cargarBarberosAdmin();
 function cargarBarberosAdmin(){
     var slcBarberos = document.querySelector("#filtroBarbero");
-    for (let i = 0; i < barberos.length; i++) {        
-        const element = barberos[i];
-        var option = `<option value="${element.nombre}">${element.nombre}</option>`;
+    barberos.forEach(e => {
+        var option = `<option value="${e.nombre}">${e.nombre}</option>`;
         slcBarberos.innerHTML += option;
-    }
+    })
 }
 
 
 
 document.querySelector("#btnFiltrar").addEventListener("click", filtrarReservas);
 function filtrarReservas(){
-    
-    var espacioReservas = document.querySelector("#DivReservas");
-
+    let $ = (e) => document.querySelector(e);
     var filtroBarbero = document.querySelector("#filtroBarbero").value;
     var filtroFecha = document.querySelector("#filtroFecha").value;
 
 
     if(filtroBarbero != "-1"  && filtroFecha != ""){
-        for (let i = 0; i < reservas.length; i++) {
-            const element = reservas[i];
-
-            if(filtroBarbero == element.barbero && filtroFecha == element.fecha){
-                var card = `
-                <div class="card tamCard">
-                    <div class="card-body">
-                        <h5 class="card-title">Reserva</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">${element.barbero}</h6>
-                        <p>
-                            Usuario: ${element.name}
-                            Hora: ${element.hora}
-                            Fecha: ${element.fecha}
-                        </p>
-                    </div>`
-                espacioReservas.innerHTML += card;
+        reservas.forEach(e => {
+            if(filtroBarbero == e.barbero && filtroFecha == e.fecha){
+                $("#DivReservas").innerHTML += `
+                    <div class="card tamCard">
+                        <div class="card-body">
+                            <h5 class="card-title">Reserva</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">${e.barbero}</h6>
+                            <p>
+                                Usuario: ${e.nombre}
+                                Hora: ${e.hora}
+                                Fecha: ${e.fecha}
+                            </p>
+                        </div>
+                    </div>
+                `;
             }
-        }
+        })
     }else if(filtroBarbero == "-1" && filtroFecha != ""){
-        for (let i = 0; i < reservas.length; i++) {
-            const element = reservas[i];
-            if(filtroFecha == element.fecha){
-                var card = `
-                <div class="card tamCard">
+        reservas.forEach(e => {
+            if(filtroFecha == e.fecha){
+                $("#DivReservas").innerHTML += `
+                    <div class="card tamCard">
+                        <div class="card-body">
+                            <h5 class="card-title">Reserva</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">${e.barbero}</h6>
+                            <p>
+                                Usuario: ${e.nombre}<br>
+                                Hora: ${e.hora}<br>
+                                Fecha: ${e.fecha}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+        })
+    }else if(filtroBarbero != "-1" && filtroFecha == ""){
+        reservas.forEach(e => {
+            if(filtroBarbero == e.barbero){
+                $("#DivReservas").innerHTML += `
+                    <div class="card tamCard">
+                        <div class="card-body">
+                            <h5 class="card-title">Reserva</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">${e.barbero}</h6>
+                            <p>
+                                Usuario: ${e.nombre} <br>
+                                Hora: ${e.hora} <br>
+                                Fecha: ${e.fecha}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+        })
+    }else{
+        reservas.forEach(e => {
+            $("#DivReservas").innerHTML += `
+               <div class="card tamCard">
                     <div class="card-body">
                         <h5 class="card-title">Reserva</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">${element.barbero}</h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">${e.barbero}</h6>
                         <p>
-                            Usuario: ${element.name}
-                            Hora: ${element.hora}
-                            Fecha: ${element.fecha}
+                            Usuario: ${e.nombre} <br>
+                            Hora: ${e.hora}<br>
+                            Fecha: ${e.fecha}
                         </p>
-                    </div> `
-                espacioReservas.innerHTML += card;
-            }
-        }
-    }else if(filtroBarbero != "-1" && filtroFecha == ""){
-        for (let i = 0; i < reservas.length; i++) {
-            const element = reservas[i];
-            if(element.barbero == filtroBarbero){
-                var card = `
-               <div class="card tamCard">
-                <div class="card-body">
-                    <h5 class="card-title">Reserva</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">${element.barbero}</h6>
-                    <p>
-                        Usuario: ${element.name}
-                        Hora: ${element.hora}
-                        Fecha: ${element.fecha}
-                    </p>
-                </div> `
-                espacioReservas.innerHTML += card;
-            }
-        }
-    }else{
-        for (let i = 0; i < reservas.length; i++) {
-            const element = reservas[i];
-            var card = `
-              <div class="card tamCard">
-                <div class="card-body">
-                    <h5 class="card-title">Reserva</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">${element.barbero}</h6>
-                    <p>
-                        Usuario: ${element.name}
-                        Hora: ${element.hora}
-                        Fecha: ${element.fecha}
-                    </p>
-                </div> `
-            espacioReservas.innerHTML += card;
-        }
+                    </div>
+                </div>
+            `;
+        })
     }
 }

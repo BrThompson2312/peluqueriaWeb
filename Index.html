@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilo Clasico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+            <ul>
+                <li>Logo</li>
+            </ul>
+            <ul class="d-flex align-items-center gap-3">
+                <li><a href="#promociones">Logo</a></li>
+                <li><a href="#algo">Promociones</a></li>
+                <li><a href="#algo">Barberos</a></li>
+                <li><a href="#algo">Servicios</a></li>
+                <li class="bg-white rounded-2 text-dark p-2"><a href="#algo" class="text-dark">Sign In</a></li>
+            </ul>
+        </nav>
+        <section class="portada">
+            <h1>Estilo Clasico</h1>
+            <h3 class="text-secondary mb-2">Barberia</h3>
+            <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1">Reserva</button>
+        </section>
+    </header>
+    <main>
+        <section class="promociones">
+            <h1>Promociones</h1>
+
+            <div class="wrapper-box" id="promociones">
+            </div>
+        </section>
+
+        <section class="servicios">
+            <h1>Servicios</h1>
+            
+            <div class="wrapper-box" id="servicios">
+            </div>
+        </section>
+
+        <section class="barberos">
+            <h1>Barberos</h1>
+
+            <div class="wrapper-box text-dark" id="barberos">
+            </div>
+        </section>
+
+        <section class="reservas">
+
+            <h1>Reserva</h1>
+
+            <form>
+                <div class="container d-flex align-items-center justify-content-start flex-wrap">
+                    <div class="box form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input class="form-control" name="Nombre">
+                    </div>
+                    <div class="box">
+                        <label for="Email">Email</label>
+                        <input class="form-control" name="Email">
+                    </div>
+                    <div class="box">
+                        <label for="Hora">Hora</label>
+                        <input class="form-control" name="Hora">
+                    </div>
+                    <div class="box">
+                        <label for="Barbero">Barbero</label>
+                        <input class="form-control" name="Barbero">
+                    </div>
+                    <div class="box">
+                        <label for="Telefono">Telefono</label>
+                        <input class="form-control" name="Telefono">
+                    </div>
+                    <div class="box">
+                        <label for="Fecha">Fecha</label>
+                        <input class="form-control" name="Fecha">
+                    </div>
+                    <div class="box">
+                        <label for="Servicio">Servicio</label>
+                        <input class="form-control" name="Servicio">
+                    </div>
+                </div>
+                <button style="width: 10em; font-weight: bold" class="btn bg-white text-dark rounded-2 p-1 mt-3 mb-3">Reservar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white p-5 text-center">
+        <h3>Contactos</h3>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="js/Clases/Administrador.js"></script>
+    <script src="js/Clases/Barbero.js"></script>
+    <script src="js/Clases/Reserva.js"></script>
+    <script src="js/Clases/Promocion.js"></script>
+    <script src="js/Clases/Servicio.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/LoginProcess.js"></script>
+</body>
+</html>

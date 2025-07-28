@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    height: 10vh;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.portada {
+    background-image: url("../Imgs/portada.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5em;
+    color: white;
+}
+
+.portada:before {
+    content: '';
+    background-color: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    display: block;
+}
+
+.portada > * {
+    z-index: 1;
+}
+
+.portada h1, 
+.portada h3 {
+    margin: 0;
+    padding: 0;
+}
+
+main section {
+    text-align: center;
+}
+
+main section .wrapper-box {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+main section h1 {
+    padding: 0;
+    margin: 0;
+    padding-top: 0.5em;
+}
+
+.promociones {
+    background-color: #D9D9D9;
+}
+.promociones .box {
+    background-color: white;
+    width: calc(100% / 4);
+}
+
+.servicios {
+    background-color: #969393;
+}
+.servicios .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+.servicios .box img {
+    width: 18em;
+    height: 14em;
+    border-radius: 1em;
+}
+.servicios .box {
+    width: calc(100% / 3);
+}
+
+.barberos {
+    background-color: #434343;
+    color: white;
+}
+.barberos .box {
+    width: calc(100% / 3);
+}
+.barberos .box img{
+    width: 25em;
+    height: 25em;
+}
+
+.reservas {
+    background-color: #2C2C2C;
+    color: white;
+}
+.reservas .box {
+    background-color: initial;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0.5em;
+    width: calc(100%/2);
+}
+.reservas .box input {
+    width: 90%;
+    background-color: #D9D9D9;
+}
+
+.box {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.box h1,
+.box p {
+    margin: 0;
+    padding: 0;
+}

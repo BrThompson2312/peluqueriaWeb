@@ -19,6 +19,7 @@ function filtrarReservas(){
 
 
     if(filtroBarbero != "-1"  && filtroFecha != ""){
+        $("#DivReservas").innerHTML = "";
         reservas.forEach(e => {
             if(filtroBarbero == e.barbero && filtroFecha == e.fecha){
                 $("#DivReservas").innerHTML += `
@@ -37,6 +38,7 @@ function filtrarReservas(){
             }
         })
     }else if(filtroBarbero == "-1" && filtroFecha != ""){
+        $("#DivReservas").innerHTML = "";
         reservas.forEach(e => {
             if(filtroFecha == e.fecha){
                 $("#DivReservas").innerHTML += `
@@ -55,6 +57,7 @@ function filtrarReservas(){
             }
         })
     }else if(filtroBarbero != "-1" && filtroFecha == ""){
+        $("#DivReservas").innerHTML = "";
         reservas.forEach(e => {
             if(filtroBarbero == e.barbero){
                 $("#DivReservas").innerHTML += `
@@ -73,6 +76,7 @@ function filtrarReservas(){
             }
         })
     }else{
+        $("#DivReservas").innerHTML = "";
         reservas.forEach(e => {
             $("#DivReservas").innerHTML += `
                <div class="card tamCard">

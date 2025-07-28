@@ -8,64 +8,77 @@
         <title>Estilo Clasico</title>
     </head>
     <body>
-
-        <section id="GestBarberos">
-            
-        </section>
-
-        <section id="GestPromociones">
-            
-        </section>
-
-
-        <section id="GestReservas">
-
-            <h1 class="h1">Reservas</h1>
-
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                    <div class=" col-6">
-                        <label for="filtroBarbero">Barbero</label>
-
-                        <select id="filtroBarbero" class="form-select">
-                            <option value="-1">Seleccione una Opcion</option>
-                        </select>
-                    </div>
-
-                    <div class="col-4">
-                        <label for="filtroFecha">Fecha</label>
-                        <input type="date" name="" id="filtroFecha" class="form-control">
-                    </div>
-
-                    <div class="col-2">
-                        <input type="submit" id="btnFiltrar" value="Filtrar" class="btn btn-light filtrar">
-                    </div>
-                </div>
-            </div>
         
+        <header>
+            <nav class="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+                <ul>
+                    <li>Logo</li>
+                </ul>
+                <ul class="d-flex align-items-center gap-3">
+                    <li><a href="#GestBarberos">Barberos</a></li>
+                    <li><a href="#GestPromociones">Promociones</a></li>
+                    <li><a href="#GestReservas">Reservas</a></li>
+                    <li class="bg-white rounded-2 text-dark p-2"><a onclick="Logout()" class="text-dark">LogOut</a></li>
+                </ul>
+            </nav>
+        </header>
 
-            <div id="DivReservas">
-                <div class="card tamCard">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    </div>
-                </div>
-
-                <div class="card tamCard">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    </div>
-                </div>
-            </div>
-
-
+        <main>
+            <section id="GestBarberos">
             
-           
-        </section>
+            </section>
+
+            <section id="GestPromociones">
+                
+            </section>
+
+
+            <section id="GestReservas">
+
+                <h1 class="h1">Reservas</h1>
+
+                <div class="d-flex justify-content-center">
+                    <div class="row">
+                        <div class=" col-6">
+                            <label for="filtroBarbero">Barbero</label>
+
+                            <select id="filtroBarbero" class="form-select">
+                                <option value="-1">Seleccione una Opcion</option>
+                            </select>
+                        </div>
+
+                        <div class="col-4">
+                            <label for="filtroFecha">Fecha</label>
+                            <input type="date" name="" id="filtroFecha" class="form-control">
+                        </div>
+
+                        <div class="col-2">
+                            <input type="submit" id="btnFiltrar" value="Filtrar" class="btn btn-light filtrar">
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div id="DivReservas">
+                    <div class="card tamCard">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        </div>
+                    </div>
+
+                    <div class="card tamCard">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
         
         <script src="Js/Clases/Barbero.js"></script>
         <script src="Js/Clases/Reserva.js"></script>

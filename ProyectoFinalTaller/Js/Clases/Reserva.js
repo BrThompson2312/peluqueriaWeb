@@ -13,3 +13,10 @@ class Reserva {
         
     }
 }
+
+const reservas = [
+    // new Barbero(null, "nombre1", "desc1", 5),
+    // new Barbero(null, "nombre2", "desc2", 5),
+    // new Barbero(null, "nombre1", "desc3", 5),
+    // new Barbero(null, "nombre1", "desc4", 5),
+];

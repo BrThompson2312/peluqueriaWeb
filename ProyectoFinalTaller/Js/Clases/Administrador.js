@@ -9,3 +9,7 @@ class Administrador {
         
     }
 }
+
+const administradores = [
+    new Administrador("correo1", 1234),
+];

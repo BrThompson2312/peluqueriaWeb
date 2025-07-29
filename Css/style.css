@@ -17,6 +17,10 @@ nav ul li a {
     color: white;
 }
 
+a:hover{
+    cursor:pointer;
+}
+
 .portada {
     background-image: url("../Imgs/portada.jpeg");
     background-size: cover;
@@ -136,4 +140,30 @@ main section h1 {
 .box p {
     margin: 0;
     padding: 0;
+}
+
+  #slcServicios label {
+    display: block;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #slcServicios label.seleccionada {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .is-invalid {
+    border: 2px solid red !important;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
 }

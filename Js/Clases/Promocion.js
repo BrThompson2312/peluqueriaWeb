@@ -1,10 +1,14 @@
+let promocionId = 1;
+
 class Promocion {
 
     constructor (nombre, descripcion, precio) {
+        this.promocionId = promocionId;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.validar();
+        promocionId++;
     }
 
     validar() {

@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", (event) => {
+    if (isLogged()) {
+        const page = window.location.pathname;
+
+        if (!page.endsWith("Admin.html")) {
+            window.location.href = "Admin.html";
+        }
+    } else if (!isLogged() || isLogged() == null){
+        const page = window.location.pathname;
+
+        if (page.endsWith("Admin.html")) {
+            window.location.href = "Index.html";
+        }
+    }
+});
 
 let barberos = [
   { nombre: "Carlos" },
@@ -5,8 +20,8 @@ let barberos = [
   { nombre: "Martín" }
 ];
 
-
 cargarBarberosAdmin();
+
 function cargarBarberosAdmin(){
     var slcBarberos = document.querySelector("#filtroBarbero");
     for (let i = 0; i < barberos.length; i++) {        
@@ -15,8 +30,6 @@ function cargarBarberosAdmin(){
         slcBarberos.innerHTML += option;
     }
 }
-
-
 
 document.querySelector("#btnFiltrar").addEventListener("click", filtrarReservas);
 function filtrarReservas(){
@@ -99,4 +112,8 @@ function filtrarReservas(){
             espacioReservas.innerHTML += card;
         }
     }
+}
+
+function isLogged() {
+    return localStorage.getItem("logueado") === "true";
 }

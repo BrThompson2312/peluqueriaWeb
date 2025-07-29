@@ -21,7 +21,7 @@
                 <li class="bg-white rounded-2 text-dark p-2"><a href="#algo" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
-        <section class="portada">
+        <section class="portada d-flex align-items-center justify-content-center flex-column">
             <h1>Estilo Clasico</h1>
             <h3 class="text-secondary mb-2">Barberia</h3>
             <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1">Reserva</button>
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        <section class="reservas">
+        <section class="form-reservar">
 
             <h1>Reserva</h1>
 
@@ -69,7 +69,12 @@
                     </div>
                     <div class="box">
                         <label for="Barbero">Barbero</label>
-                        <input class="form-control" name="Barbero">
+                        <select id="Barbero" class="form-select">
+                            <option selected>Seleccione barbero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                     </div>
                     <div class="box">
                         <label for="Telefono">Telefono</label>
@@ -81,7 +86,12 @@
                     </div>
                     <div class="box">
                         <label for="Servicio">Servicio</label>
-                        <input class="form-control" name="Servicio">
+                        <select id="Servicio" class="form-select">
+                            <option selected>Seleccione servicio</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                     </div>
                 </div>
                 <button style="width: 10em; font-weight: bold" class="btn bg-white text-dark rounded-2 p-1 mt-3 mb-3">Reservar</button>
@@ -100,6 +110,5 @@
     <script src="js/Clases/Promocion.js"></script>
     <script src="js/Clases/Servicio.js"></script>
     <script src="js/Main.js"></script>
-    <script src="js/LoginProcess.js"></script>
 </body>
 </html>

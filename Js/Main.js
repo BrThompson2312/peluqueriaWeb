@@ -61,6 +61,7 @@ function renderizarServiciosSelect() {
     contenedor.innerHTML = "";
 
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    promociones = JSON.parse(localStorage.getItem("promociones")) || [];
 
     servicios.forEach(e => {
         let label = document.createElement("label");
@@ -82,6 +83,29 @@ function renderizarServiciosSelect() {
             event.preventDefault();
         });
     });
+
+    promociones.forEach(e => {
+        let label = document.createElement("label");
+        label.className = "opcion";
+        label.textContent = e.nombre;
+        
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = "promociones[]";
+        checkbox.value = e.promocionId;
+        checkbox.hidden = true;
+        
+        label.appendChild(checkbox);
+        contenedor.appendChild(label);
+
+        label.addEventListener("click", function (event) {
+            checkbox.checked = !checkbox.checked;
+            label.classList.toggle("seleccionada", checkbox.checked);
+            event.preventDefault();
+        });
+
+    });
+
 }
 
 

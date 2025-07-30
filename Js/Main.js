@@ -48,7 +48,7 @@ function renderizarServiciosSection() {
                     <p><strong>Duración estimada: ${e.duracion}</strong></p>
                     <p><strong>Precio: ${e.precio}</strong></p>
                 </div>
-                <img src="${e.imagen}">
+                <img class="img-fluid" src="${e.imagen}">
             </div>
         `;
     });
@@ -94,7 +94,7 @@ function renderizarBarberosSection() {
     barberos.forEach(b => {
         contenedor.innerHTML += `
             <div class="box">
-                <img class="bg-secondary d-block mb-3 mx-auto" src="${b.foto}">
+                <img class="bg-secondary d-block mb-3 mx-auto img-fluid" src="${b.foto}">
                 <div class="text-start pb-5">
                     <h4>${b.nombre}</h4>
                     <p>${b.descripcion}</p>
@@ -160,6 +160,23 @@ function precargaDatos() {
         localStorage.setItem("promociones", JSON.stringify(promociones));
     }
 }
+
+
+mapa();
+function mapa(){
+    var map = L.map('map').setView([-34.9011, -56.1645], 13); // Montevideo
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([-34.9011, -56.1645]).addTo(map)
+        .bindPopup('Estilo Clasico')
+        .openPopup();
+
+}
+
+
 
 // document.getElementById("formReserva").addEventListener("submit", function (e) {
 //     e.preventDefault();

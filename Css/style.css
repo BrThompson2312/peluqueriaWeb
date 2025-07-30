@@ -167,3 +167,14 @@ main section h1 {
     font-size: 0.9em;
     margin-top: 4px;
 }
+
+#list-unstyled {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.redes{
+    text-decoration: none;
+    color: black;
+}

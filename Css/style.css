@@ -178,3 +178,11 @@ main section h1 {
     text-decoration: none;
     color: black;
 }
+
+.logo {
+    width: 10vh;
+    height: 10vh;
+    margin-left: 10vh;
+    background-color: white;
+    border-radius: 50%;
+}

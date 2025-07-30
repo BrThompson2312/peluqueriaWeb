@@ -20,8 +20,8 @@ function importar_servicios() {
                 <div class="d-flex align-items-center justify-content-between gap-1">
                     <div class="info-corte d-flex align-items-center justify-content-between flex-column gap-1">
                         <p>${e.descripcion}</p>
-                        <p><strong>Duracion estimada: ${e.duracion}</strong></p>
-                        <p><strong>Precio: ${e.precio}</strong></p>
+                        <p><strong>Duracion estimada: ${e.duracion}${e.unidadDuracion}</strong></p>
+                        <p><strong>Precio: $${e.precio}</strong></p>
                     </div>
                     <img src="${e.imagen}">
                 </div>

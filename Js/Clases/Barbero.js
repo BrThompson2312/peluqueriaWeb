@@ -13,8 +13,8 @@ class Barbero {
 }
 
 const barberos = [
-    new Barbero("Imgs/npc.jpg", "nombre1", "desc1", 5),
-    new Barbero("Imgs/npc.jpg", "nombre2", "desc2", 5),
-    new Barbero("Imgs/npc.jpg", "nombre1", "desc3", 5),
-    new Barbero("Imgs/npc.jpg", "nombre1", "desc4", 5),
+    new Barbero("Imgs/npc.jpg", "Nico González", "Barbero uruguayo que ha trabajado con numerosas figuras públicas, incluyendo a Marcelo Tinelli y Luis Suárez. ", 5),
+    new Barbero("Imgs/npc.jpg", "Arod the Barber", "Barbero de Los Ángeles, California, conocido por su estilo exótico y por especializarse en cortes afro y colores fantasía", 5),
+    new Barbero("Imgs/npc.jpg", "Martial Vivot:", "Barbero francés, considerado uno de los estilistas masculinos más solicitados a nivel mundial, según un artículo de Philips. ", 5),
+    new Barbero("Imgs/npc.jpg", "Blind Barber:", "Barbería en Nueva York que atiende a una clientela famosa, incluyendo atletas, actores y comediantes. ", 5),
 ]; 

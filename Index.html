@@ -9,16 +9,15 @@
 </head>
 <body>
     <header>
-        <nav class="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+        <nav class="text-white d-flex flex-column flex-sm-row align-items-center justify-content-between p-2 position-fixed w-100 z-2">
             <ul>
-                <li>Logo</li>
+                <li class="bg-white rounded-5"><a href=""><img src="Imgs/logo.png" style="width: 4em"></a></li>
             </ul>
             <ul class="d-flex align-items-center gap-3">
-                <li><a href="#promociones">Logo</a></li>
-                <li><a href="#algo">Promociones</a></li>
-                <li><a href="#algo">Barberos</a></li>
-                <li><a href="#algo">Servicios</a></li>
-                <li class="bg-white rounded-2 text-dark p-2"><a href="#algo" class="text-dark">Sign In</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+                <li><a href="#barberos">Barberos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li class="bg-white rounded-2 text-dark p-2"><a href="Login.html" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
         <section class="portada d-flex align-items-center justify-content-center flex-column">
@@ -50,25 +49,23 @@
         </section>
 
         <section class="form-reservar">
-
             <h1>Reserva</h1>
-
             <form>
-                <div class="container d-flex align-items-center justify-content-start flex-wrap">
+                <div class="d-flex flex-wrap justify-content-center">
                     <div class="box form-group">
-                        <label for="Nombre">Nombre</label>
+                        <label>Nombre</label>
                         <input class="form-control" name="Nombre">
                     </div>
                     <div class="box">
-                        <label for="Email">Email</label>
+                        <label>Email</label>
                         <input class="form-control" name="Email">
                     </div>
                     <div class="box">
-                        <label for="Hora">Hora</label>
+                        <label>Hora</label>
                         <input class="form-control" name="Hora">
                     </div>
                     <div class="box">
-                        <label for="Barbero">Barbero</label>
+                        <label>Barbero</label>
                         <select id="Barbero" class="form-select">
                             <option selected>Seleccione barbero</option>
                             <option value="1">One</option>
@@ -77,15 +74,15 @@
                         </select>
                     </div>
                     <div class="box">
-                        <label for="Telefono">Telefono</label>
+                        <label>Telefono</label>
                         <input class="form-control" name="Telefono">
                     </div>
                     <div class="box">
-                        <label for="Fecha">Fecha</label>
+                        <label>Fecha</label>
                         <input class="form-control" name="Fecha">
                     </div>
                     <div class="box">
-                        <label for="Servicio">Servicio</label>
+                        <label>Servicio</label>
                         <select id="Servicio" class="form-select">
                             <option selected>Seleccione servicio</option>
                             <option value="1">One</option>

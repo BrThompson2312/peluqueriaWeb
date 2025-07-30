@@ -1,7 +1,5 @@
-let servicios = [];
-
 export class Reserva {
-  constructor(nombre, telefono, email, fecha, hora, serviciosSeleccionados = [], barbero = null) {
+  constructor(nombre, telefono, email, fecha, hora, serviciosSeleccionados = [], barbero = null, serviciosDisponibles = null) {
     this.nombre = nombre || "";
     this.telefono = telefono || "";
     this.email = email || "";
@@ -9,16 +7,18 @@ export class Reserva {
     this.hora = hora || "";
     this.serviciosSeleccionados = serviciosSeleccionados;
     this.barbero = barbero || null;
-    this.duracion = calcularDuracion(serviciosSeleccionados);
+    this.duracion = calcularDuracion(serviciosSeleccionados, serviciosDisponibles);
   }
 
-  setServicios(serviciosIds) {
-    this.servicios = serviciosIds;
+  setServicios(serviciosIds, serviciosDisponibles = null) {
+    this.serviciosSeleccionados = serviciosIds;
+    this.duracion = calcularDuracion(serviciosIds, serviciosDisponibles);
   }
 }
-export function calcularDuracion(serviciosSeleccionados) {
+
+export function calcularDuracion(serviciosSeleccionados, serviciosDisponibles = null) {
   let ret = 0;
-  servicios = JSON.parse(localStorage.getItem("servicios"));
+  const servicios = serviciosDisponibles || JSON.parse(localStorage.getItem("servicios"));
 
   serviciosSeleccionados.forEach(idServicio => {
     const idNum = Number(idServicio);

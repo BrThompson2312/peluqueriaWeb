@@ -10,6 +10,7 @@ let promociones = [];
 document.addEventListener("DOMContentLoaded", (event) => {
     precargaDatos();
     importar_data();
+
 });
 
 function renderizarPromocionesSection() {

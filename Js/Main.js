@@ -40,6 +40,8 @@ function renderizarServiciosSection() {
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
     servicios.forEach(e => {
+        debugger;
+        const imagenSrc = e.imagen ? e.imagen : "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
         contenedor.innerHTML += `
             <div class="box">
                 <div>
@@ -48,7 +50,7 @@ function renderizarServiciosSection() {
                     <p><strong>Duración estimada: ${e.duracion}</strong></p>
                     <p><strong>Precio: ${e.precio}</strong></p>
                 </div>
-                <img class="img-fluid" src="${e.imagen}">
+                <img class="img-fluid" src=${imagenSrc}>
             </div>
         `;
     });
@@ -140,11 +142,11 @@ function precargaDatos() {
     }
 
     const servicios = [
-        new Servicio("Corte de Pelo", "Corte clásico o moderno, adaptado al estilo y preferencias del cliente. Incluye lavado exprés y acabado con productos de styling.", 75, 600, null),
-        new Servicio("Perfilado y Afeitado de Barba", "Perfilado de barba con máquina y/o navaja, incluye vapor caliente, loción refrescante y toalla tibia.", 45, 450, null),
-        new Servicio("Coloración Capilar", "Aplicación de color para cubrir canas o dar un estilo personalizado. Incluye diagnóstico previo y productos sin amoníaco.", 15, 1000, null),
-        new Servicio("Manicura Masculina", "Corte y limado de uñas, tratamiento de cutículas, hidratación y pulido (sin esmalte). Ideal para imagen profesional o cuidado personal.", 30, 500, null),
-    ];
+        new Servicio("Corte de Pelo", "Corte clásico o moderno, adaptado al estilo y preferencias del cliente. Incluye lavado exprés y acabado con productos de styling.", 75, 600, "Imgs/cortepelo.jpg"),
+        new Servicio("Perfilado y Afeitado de Barba", "Perfilado de barba con máquina y/o navaja, incluye vapor caliente, loción refrescante y toalla tibia.", 45, 450, "Imgs/perfiladobarba.jpg"),
+        new Servicio("Coloración Capilar", "Aplicación de color para cubrir canas o dar un estilo personalizado. Incluye diagnóstico previo y productos sin amoníaco.", 15, 1000, "Imgs/coloracionpelo.jpg"),
+        new Servicio("Manicura Masculina", "Corte y limado de uñas, tratamiento de cutículas, hidratación y pulido (sin esmalte). Ideal para imagen profesional o cuidado personal.", 30, 500, "Imgs/manicuramasculina.jpg"),
+    ];    
 
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(servicios));
@@ -159,6 +161,8 @@ function precargaDatos() {
     if (!localStorage.getItem("promociones")) {
         localStorage.setItem("promociones", JSON.stringify(promociones));
     }
+
+    console.log(servicios);
 }
 
 

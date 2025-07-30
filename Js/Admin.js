@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     filtrarReservas();
 });
 
-
-
 function cargarBarberosAdmin() {
     var slcBarberos = document.querySelector("#filtroBarbero");
     barberos.forEach(e => {
@@ -56,7 +54,7 @@ function filtrarReservas() {
                         <i class="bi bi-calendar-check-fill"></i> Reserva
                     </h5>
                     <h6 class="card-subtitle mb-3 text-muted">
-                        <i class="bi bi-person-fill"></i> ${barbero?.nombre || "Barbero desconocido"}
+                        <i class="bi bi-person-fill"></i>Barbero: ${barbero?.nombre || "Barbero desconocido"}
                     </h6>
                     <p class="mb-1"><strong><i class="bi bi-person-badge-fill"></i> Usuario:</strong> ${e.nombre}</p>
                     <p class="mb-1"><strong><i class="bi bi-clock-fill"></i> Hora:</strong> ${e.hora}</p>

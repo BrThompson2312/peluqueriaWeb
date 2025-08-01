@@ -1,20 +1,18 @@
-import { calcularDuracion } from "./Clases/Reserva.js";
-import { crearReserva } from "./reserva.js";
+import { crearReserva } from "./crearReserva.js";
 
-document.querySelector("#formReserva").addEventListener("submit", function(event) {
+document.querySelector("#formReserva").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const formData = new FormData(this); 
+    const formData = new FormData(this);
+    const reservasGuardadas = JSON.parse(localStorage.getItem("reservas")) || [];
+    const resultado = crearReserva(formData, reservasGuardadas);
 
-    if (!validarFormularioReserva(formData)) return;
-
-    let reservasGuardadas = crearReserva(formData, JSON.parse(localStorage.getItem("reservas")));
-
-    if (!Array.isArray(reservasGuardadas)) {
-        reservasGuardadas = [];
+    if (!resultado.ok) {
+        mostrarErroresReserva(resultado.errores);
+        return;
     }
 
-    localStorage.setItem("reservas", JSON.stringify(reservasGuardadas));
+    localStorage.setItem("reservas", JSON.stringify(resultado.reservas));
 
     const exito = document.querySelector("#mensaje-exito");
     exito.textContent = "¡Reserva realizada correctamente!";
@@ -51,37 +49,24 @@ function marcarInvalido(selector, condicion, mensaje = "") {
     }
 }
 
-function validarFormularioReserva(formData) {
+function mostrarErroresReserva(errores) {
+    const campos = ['Nombre', 'Telefono', 'Email', 'Fecha', 'Hora'];
     let esValido = true;
 
-    const nombre = formData.get("Nombre")?.trim();
-    if (!marcarInvalido("[name='Nombre']", !nombre || nombre.length < 2, "Debe tener al menos 2 caracteres"))
-        esValido = false;
+    for (const campo of campos) {
+        const error = errores[campo];
+        const selector = `[name='${campo}']`;
+        if (!marcarInvalido(selector, !!error, error)) {
+            esValido = false;
+        }
+    }
 
-    const telefono = formData.get("Telefono")?.trim();
-    if (!marcarInvalido("[name='Telefono']", !/^\d{7,15}$/.test(telefono), "Teléfono inválido"))
-        esValido = false;
-
-    const email = formData.get("Email")?.trim();
-    if (!marcarInvalido("[name='Email']", !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), "Email inválido"))
-        esValido = false;
-
-    const fecha = formData.get("Fecha");
-    if (!marcarInvalido("[name='Fecha']", !fecha, "Seleccioná una fecha"))
-        esValido = false;
-
-    const hora = formData.get("Hora");
-    if (!marcarInvalido("[name='Hora']", !hora, "Seleccioná una hora"))
-        esValido = false;
-
-    const servicios = formData.getAll("servicios[]");
     const serviciosContenedor = document.querySelector("#slcServicios");
-
     const servicioError = serviciosContenedor?.nextElementSibling;
-    if (!servicios || servicios.length === 0) {
+    if (errores.Servicios) {
         serviciosContenedor.classList.add("is-invalid");
         if (!servicioError || !servicioError.classList.contains("error-msg")) {
-            serviciosContenedor.insertAdjacentHTML("afterend", `<div class="error-msg">Seleccioná al menos un servicio</div>`);
+            serviciosContenedor.insertAdjacentHTML("afterend", `<div class="error-msg">${errores.Servicios}</div>`);
         }
         esValido = false;
     } else {
@@ -91,11 +76,7 @@ function validarFormularioReserva(formData) {
         }
     }
 
-    const barbero = document.querySelector("#slcBarberos").value;
-    if (!marcarInvalido("#slcBarberos", !barbero, "Seleccioná un barbero"))
-        esValido = false;
-
-    if(!marcarInvalido("[name='Hora']", horarioOcupado(fecha, hora, calcularDuracion(servicios), barbero), "Horario ocupado")){
+    if (!marcarInvalido("#slcBarberos", !!errores.Barbero, errores.Barbero)) {
         esValido = false;
     }
 
@@ -108,20 +89,4 @@ function limpiarFormularioReserva() {
 
     formulario.querySelectorAll(".is-invalid").forEach(campo => campo.classList.remove("is-invalid"));
     formulario.querySelectorAll(".error-msg").forEach(msg => msg.remove());
-}
-
-function horarioOcupado(nuevaFecha, nuevaHora, nuevaDuracion, barberoId) {
-  const reservasExistentes = JSON.parse(localStorage.getItem("reservas"));
-  const inicioNuevo = new Date(`${nuevaFecha}T${nuevaHora}`);
-  const finNuevo = new Date(inicioNuevo.getTime() + nuevaDuracion * 60000);
-
-  for (const reserva of reservasExistentes) {
-    const inicioRes = new Date(`${reserva.fecha}T${reserva.hora}`);
-    const finRes = new Date(inicioRes.getTime() + reserva.duracion * 60000);
-
-    if (inicioNuevo < finRes && finNuevo > inicioRes && reserva.barbero == barberoId) {
-      return true; 
-    }
-  }
-  return false;
 }

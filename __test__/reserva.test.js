@@ -1,21 +1,52 @@
-import { crearReserva } from "../Js/reserva";
+import { crearReserva } from "../Js/crearReserva";
 
 describe('reserva test', () => {
-  it('crea reserva correctamente', () => {
-    const serviciosDisponibles = [
-      { servicioId: 1, nombre: "Corte", duracion: 30 },
-      { servicioId: 3, nombre: "Barba", duracion: 20 }
-    ];
+  const serviciosDisponibles = [
+    { servicioId: 1, nombre: "Corte", duracion: 30 },
+    { servicioId: 3, nombre: "Barba", duracion: 20 }
+  ];
 
-    const formData = {
+  const formData = {
+    get: (campo) => {
+      const datos = {
+        Nombre: "Sebastián",
+        Telefono: "098123456",
+        Email: "sebastian@mail.com",
+        Fecha: "2025-08-01",
+        Hora: "10:00",
+        barberos: "1",
+      };
+      return datos[campo];
+    },
+    getAll: (campo) => {
+      if (campo === 'servicios[]') return [1, 3];
+      return [];
+    }
+  };
+
+  it('crea reserva correctamente', () => {
+    const reservasIniciales = [];
+    const respuesta = crearReserva(formData, reservasIniciales, serviciosDisponibles);
+
+    console.log(respuesta);
+
+    expect(respuesta.reservas.length).toBe(1);
+
+    expect(respuesta.reservas[0].duracion).toBe(50);
+  });
+
+  //TODO crea reserva, barbero ocupado
+
+  it('crea reserva, barbero ocupado', () => {
+    const badFormData = {
       get: (campo) => {
         const datos = {
-          Nombre: "Sebastián",
-          Telefono: "098123456",
-          Email: "sebastian@mail.com",
+          Nombre: "Juan",
+          Telefono: "098123453",
+          Email: "juan@gmail.com",
           Fecha: "2025-08-01",
-          Hora: "10:00",
-          slcBarberos: "1",
+          Hora: "10:20",
+          barberos: "1",
         };
         return datos[campo];
       },
@@ -23,13 +54,19 @@ describe('reserva test', () => {
         if (campo === 'servicios[]') return [1, 3];
         return [];
       }
-    };
+    }
 
     const reservasIniciales = [];
-    const reservas = crearReserva(formData, reservasIniciales, serviciosDisponibles);
+    let respuesta = crearReserva(formData, reservasIniciales, serviciosDisponibles);
 
-    expect(reservas.length).toBe(1);
+    expect(respuesta.reservas.length).toBe(1);
 
-    expect(reservas[0].duracion).toBe(50);
+    respuesta = crearReserva(badFormData, reservasIniciales, serviciosDisponibles);
+
+    console.log(respuesta);
+
+    expect(respuesta.ok).toBeFalsy();
+    expect(respuesta.errores).toHaveProperty("Hora", 'Horario ocupado');
+
   });
 });

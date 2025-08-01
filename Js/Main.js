@@ -161,9 +161,3 @@ function precargaDatos() {
         localStorage.setItem("promociones", JSON.stringify(promociones));
     }
 }
-
-// document.getElementById("formReserva").addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     const data = new FormData(this);
-//     console.log(data.getAll("servicios[]"));
-// });

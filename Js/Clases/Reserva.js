@@ -14,15 +14,26 @@ export class Reserva {
     this.serviciosSeleccionados = serviciosIds;
     this.duracion = calcularDuracion(serviciosIds, serviciosDisponibles);
   }
+
 }
 
 export function calcularDuracion(serviciosSeleccionados, serviciosDisponibles = null) {
   let ret = 0;
-  const servicios = serviciosDisponibles || JSON.parse(localStorage.getItem("servicios"));
+  serviciosDisponibles = serviciosDisponibles || JSON.parse(localStorage.getItem("servicios")) || [];
+
+  if (!Array.isArray(serviciosDisponibles) || serviciosDisponibles.length === 0) {
+    console.warn("calcularDuracion: serviciosDisponibles vacío o inválido");
+    return 0;
+  }
+
+  if (!Array.isArray(serviciosSeleccionados)) {
+    console.warn("calcularDuracion: serviciosSeleccionados no es array", serviciosSeleccionados);
+    return 0;
+  }
 
   serviciosSeleccionados.forEach(idServicio => {
     const idNum = Number(idServicio);
-    const servicioObj = servicios.find(s => s.servicioId === idNum);
+    const servicioObj = serviciosDisponibles.find(s => s.servicioId === idNum);
     if (servicioObj) {
       ret += servicioObj.duracion;
     }

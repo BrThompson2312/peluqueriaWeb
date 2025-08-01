@@ -16,39 +16,9 @@ body {
     transform: translate(-50%, -50%);
 }
 
-<<<<<<< HEAD
-.tamCard{
-    width: auto;
-    margin-top: 15px;
-}
-
-.h1{
-    text-align: center;
-}
-
-.filtrar{
-    width: auto;
-    border-radius: 50px;
-}
-
-nav {
-    height: 10vh;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-}
-=======
 @media (max-width: 700px) {
     #formLogin {
         width: calc(100% - 5em);
         height: calc(100% - 5em);
     }
 }
->>>>>>> pageUsuario

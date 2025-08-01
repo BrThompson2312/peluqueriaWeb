@@ -86,40 +86,6 @@ main section h1 {
     padding: 0;
 }
 
-<<<<<<< HEAD
-  #slcServicios label {
-    display: block;
-    padding: 8px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  #slcServicios label.seleccionada {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-  }
-
-  .is-invalid {
-    border: 2px solid red !important;
-}
-
-.error-msg {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 4px;
-}
-
-.logo {
-    width: 10vh;
-    height: 10vh;
-    margin-left: 10vh;
-    background-color: white;
-    border-radius: 50%;
-=======
 
 
 .promociones {
@@ -190,5 +156,4 @@ main section h1 {
 
 .form-reservar .box :where(input, select) {
     background-color: var(--bg-formReservar-input);
->>>>>>> pageUsuario
 }

@@ -1,35 +1,38 @@
-let adminEmail = "juan@gmail.com";
-let adminPass = "juan1234";
+import { Login } from "./auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    if(isLogged()){
+    if (isLogged()) {
         alert("Ya esta logueado");
         window.location.href = "Index.html";
     }
 });
 
-document.querySelector("#form-login").addEventListener("submit", function(event) {
+document.querySelector("#form-login").addEventListener("submit", function (event) {
     event.preventDefault();
     const form = document.getElementById("form-login");
 
     let email = form.elements.txtEmail.value;
-    let password = form.elements.txtPassword.value; 
-    
-    if (email == adminEmail && password == adminPass) {
-        const success = document.getElementById("success");
-        success.style.display = "block";
-        localStorage.setItem("logueado", "true");  
-        window.location.href = "Admin.html";      
+    let password = form.elements.txtPassword.value;
 
-        setTimeout(() => {
-            success.style.display = "none";
-        }, 3000);
-    } else {
+    const message = Login(email, password);
+    const success = document.getElementById("success");
+
+    if (message) {
         const error = document.getElementById("error1");
+        error.innerHTML = message;
         error.style.display = "block";
 
         setTimeout(() => {
             error.style.display = "none";
+        }, 3000);
+    } else {
+        success.style.display = "block";
+        success.innerHTML = message;
+        localStorage.setItem("logueado", "true");
+        window.location.href = "Admin.html";
+
+        setTimeout(() => {
+            success.style.display = "none";
         }, 3000);
     }
 });

@@ -10,6 +10,7 @@ let promociones = [];
 document.addEventListener("DOMContentLoaded", (event) => {
     precargaDatos();
     importar_data();
+
 });
 
 function renderizarPromocionesSection() {
@@ -185,12 +186,11 @@ function precargaDatos() {
     if (!localStorage.getItem("promociones")) {
         localStorage.setItem("promociones", JSON.stringify(promociones));
     }
-
-    console.log(servicios);
 }
 
 
 mapa();
+
 function mapa(){
     var map = L.map('map').setView([-34.9011, -56.1645], 13); // Montevideo
 
@@ -203,11 +203,3 @@ function mapa(){
         .openPopup();
 
 }
-
-
-
-// document.getElementById("formReserva").addEventListener("submit", function (e) {
-//     e.preventDefault();
-//     const data = new FormData(this);
-//     console.log(data.getAll("servicios[]"));
-// });

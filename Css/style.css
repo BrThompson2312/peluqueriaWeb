@@ -167,3 +167,11 @@ main section h1 {
     font-size: 0.9em;
     margin-top: 4px;
 }
+
+.logo {
+    width: 10vh;
+    height: 10vh;
+    margin-left: 10vh;
+    background-color: white;
+    border-radius: 50%;
+}

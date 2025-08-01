@@ -41,6 +41,8 @@ function renderizarServiciosSection() {
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
     servicios.forEach(e => {
+        debugger;
+        const imagenSrc = e.imagen ? e.imagen : "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
         contenedor.innerHTML += `
             <div class="box">
                 <div>
@@ -49,7 +51,7 @@ function renderizarServiciosSection() {
                     <p><strong>Duración estimada: ${e.duracion}</strong></p>
                     <p><strong>Precio: ${e.precio}</strong></p>
                 </div>
-                <img src="${e.imagen}">
+                <img class="img-fluid" src=${imagenSrc}>
             </div>
         `;
     });
@@ -60,6 +62,7 @@ function renderizarServiciosSelect() {
     contenedor.innerHTML = "";
 
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    promociones = JSON.parse(localStorage.getItem("promociones")) || [];
 
     servicios.forEach(e => {
         let label = document.createElement("label");
@@ -81,6 +84,29 @@ function renderizarServiciosSelect() {
             event.preventDefault();
         });
     });
+
+    promociones.forEach(e => {
+        let label = document.createElement("label");
+        label.className = "opcion";
+        label.textContent = e.nombre;
+        
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = "promociones[]";
+        checkbox.value = e.promocionId;
+        checkbox.hidden = true;
+        
+        label.appendChild(checkbox);
+        contenedor.appendChild(label);
+
+        label.addEventListener("click", function (event) {
+            checkbox.checked = !checkbox.checked;
+            label.classList.toggle("seleccionada", checkbox.checked);
+            event.preventDefault();
+        });
+
+    });
+
 }
 
 
@@ -95,7 +121,7 @@ function renderizarBarberosSection() {
     barberos.forEach(b => {
         contenedor.innerHTML += `
             <div class="box">
-                <img class="bg-secondary d-block mb-3 mx-auto" src="${b.foto}">
+                <img class="bg-secondary d-block mb-3 mx-auto img-fluid" src="${b.foto}">
                 <div class="text-start pb-5">
                     <h4>${b.nombre}</h4>
                     <p>${b.descripcion}</p>
@@ -141,11 +167,11 @@ function precargaDatos() {
     }
 
     const servicios = [
-        new Servicio("Corte de Pelo", "Corte clásico o moderno, adaptado al estilo y preferencias del cliente. Incluye lavado exprés y acabado con productos de styling.", 75, 600, null),
-        new Servicio("Perfilado y Afeitado de Barba", "Perfilado de barba con máquina y/o navaja, incluye vapor caliente, loción refrescante y toalla tibia.", 45, 450, null),
-        new Servicio("Coloración Capilar", "Aplicación de color para cubrir canas o dar un estilo personalizado. Incluye diagnóstico previo y productos sin amoníaco.", 15, 1000, null),
-        new Servicio("Manicura Masculina", "Corte y limado de uñas, tratamiento de cutículas, hidratación y pulido (sin esmalte). Ideal para imagen profesional o cuidado personal.", 30, 500, null),
-    ];
+        new Servicio("Corte de Pelo", "Corte clásico o moderno, adaptado al estilo y preferencias del cliente. Incluye lavado exprés y acabado con productos de styling.", 75, 600, "Imgs/cortepelo.jpg"),
+        new Servicio("Perfilado y Afeitado de Barba", "Perfilado de barba con máquina y/o navaja, incluye vapor caliente, loción refrescante y toalla tibia.", 45, 450, "Imgs/perfiladobarba.jpg"),
+        new Servicio("Coloración Capilar", "Aplicación de color para cubrir canas o dar un estilo personalizado. Incluye diagnóstico previo y productos sin amoníaco.", 15, 1000, "Imgs/coloracionpelo.jpg"),
+        new Servicio("Manicura Masculina", "Corte y limado de uñas, tratamiento de cutículas, hidratación y pulido (sin esmalte). Ideal para imagen profesional o cuidado personal.", 30, 500, "Imgs/manicuramasculina.jpg"),
+    ];    
 
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(servicios));
@@ -160,4 +186,20 @@ function precargaDatos() {
     if (!localStorage.getItem("promociones")) {
         localStorage.setItem("promociones", JSON.stringify(promociones));
     }
+}
+
+
+mapa();
+
+function mapa(){
+    var map = L.map('map').setView([-34.9011, -56.1645], 13); // Montevideo
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([-34.9011, -56.1645]).addTo(map)
+        .bindPopup('Estilo Clasico')
+        .openPopup();
+
 }

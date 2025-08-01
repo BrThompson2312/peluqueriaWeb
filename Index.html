@@ -10,85 +10,80 @@
 </head>
 <body>
     <header>
-        <nav class="bg-dark text-white d-flex align-items-center justify-content-between p-3">
+        <nav class="text-white d-flex flex-column flex-sm-row align-items-center justify-content-between p-2 position-fixed w-100 z-2">
             <ul>
-                <li><img class="img-fluid logo" src="/Imgs/logo.png"></li>
+                <li class="bg-white rounded-5"><a href=""><img src="Imgs/logo.png" style="width: 4em"></a></li>
             </ul>
             <ul class="d-flex align-items-center gap-3">
-                <li><a href="#reserva">Reserva</a></li>
                 <li><a href="#promociones">Promociones</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#barberos">Barberos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#reservar">Reservar</a></li>
                 <li class="bg-white rounded-2 text-dark p-2"><a href="Login.html" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
-        <section class="portada">
+        <section class="portada d-flex align-items-center justify-content-center flex-column">
             <h1>Estilo Clasico</h1>
             <h3 class="text-secondary mb-2">Barberia</h3>
-            <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1">Reserva</button>
+            <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1"><a href="#reservar" class="text-dark">Reservar</a></button>
         </section>
     </header>
     <main>
         <section class="promociones">
             <h1>Promociones</h1>
 
-            <div class="wrapper-box" id="promociones">
+            <div class="container-xl wrapper-box" id="promociones">
             </div>
         </section>
 
         <section class="servicios">
             <h1>Servicios</h1>
             
-            <div class="wrapper-box" id="servicios">
+            <div class="container-xl wrapper-box" id="servicios">
             </div>
         </section>
 
         <section class="barberos">
             <h1>Barberos</h1>
 
-            <div class="wrapper-box text-dark" id="barberos">
+            <div class="container-xl wrapper-box text-dark" id="barberos">
             </div>
         </section>
 
-        <section class="reservas" id="reserva">
-
+        <section id="reservar" class="form-reservar">
             <h1>Reserva</h1>
-
-            <!-- <div class="error-msg"></div> -->
-
-            <form id="formReserva" class="form-group">
-                <div class="container d-flex align-items-center justify-content-start flex-wrap">
+            <form class="container-xl">
+                <div class="d-flex flex-wrap">
                     <div class="box form-group">
-                        <label for="Nombre">Nombre</label>
-                        <input class="form-control" name="Nombre" type="text">
+                        <label>Nombre</label>
+                        <input class="form-control" name="Nombre">
                     </div>
                     <div class="box">
-                        <label for="Email">Email</label>
+                        <label>Email</label>
                         <input class="form-control" name="Email">
                     </div>
                     <div class="box">
-                        <label for="Fecha">Fecha</label>
-                        <input class="form-control" name="Fecha" type="date">
+                        <label>Hora</label>
+                        <input class="form-control" name="Hora">
                     </div>
                     <div class="box">
-                        <label for="Hora">Hora</label>
-                        <input class="form-control" name="Hora" type="time">
-                    </div>
-                    <div class="box">
-                        <label for="Barbero">Barbero</label>
-                        <select class="form-control form-select" name="barberos" id="slcBarberos">
-
+                        <label>Barbero</label>
+                        <select id="Barbero" class="form-select">
                         </select>
                     </div>
                     <div class="box">
-                        <label for="Telefono">Telefono</label>
-                        <input class="form-control " name="Telefono">
+                        <label>Telefono</label>
+                        <input class="form-control" name="Telefono">
+                    </div>
+                    <div class="box">
+                        <label>Fecha</label>
+                        <input class="form-control" name="Fecha">
                     </div>
                     
                     <div class="box">
-                        <label for="Servicio">Servicio</label>
-                        <div id="slcServicios" class=" form-control" style="border: 1px solid #ced4da; border-radius: .375rem; padding: .5rem; min-height: 120px;"></div>
+                        <label>Servicio</label>
+                        <select id="Servicio" class="form-select">
+                        </select>
                     </div>
                 </div>
                 <button style="width: 10em; font-weight: bold" class="btn bg-white text-dark rounded-2 p-1 mt-3 mb-3">Reservar</button>

@@ -2,6 +2,7 @@ import { Servicio } from './Clases/Servicio.js';
 import { Barbero } from './Clases/Barbero.js';
 import { Promocion } from './Clases/Promocion.js';
 
+<<<<<<< HEAD
 let $ = (e) => document.querySelector(e);
 let barberos = [];
 let servicios = [];
@@ -27,6 +28,15 @@ function renderizarPromocionesSection() {
                     <p>${p.descripcion}</p>
                     <p><strong>Precio: ${p.precio}<strong></p>
                 </div>
+=======
+function importar_promociones() {
+    promociones.forEach(e => {
+        $("#promociones").innerHTML += `
+            <div class="box d-flex flex-column justify-content-between">
+                <h3>${e.nombre}</h3>
+                <p>${e.descripcion}</p>
+                <p><strong>Precio: $${e.precio}</strong></p>
+>>>>>>> pageUsuario
             </div>
         `;
     });
@@ -45,6 +55,7 @@ function renderizarServiciosSection() {
         const imagenSrc = e.imagen ? e.imagen : "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
         contenedor.innerHTML += `
             <div class="box">
+<<<<<<< HEAD
                 <div>
                     <h3>${e.nombre}</h3>
                     <p>${e.descripcion}</p>
@@ -52,11 +63,23 @@ function renderizarServiciosSection() {
                     <p><strong>Precio: ${e.precio}</strong></p>
                 </div>
                 <img class="img-fluid" src=${imagenSrc}>
+=======
+                <h3>${e.nombre}</h3>
+                <div class="d-flex align-items-center justify-content-between gap-1">
+                    <div class="info-corte d-flex align-items-center justify-content-between flex-column gap-1">
+                        <p>${e.descripcion}</p>
+                        <p><strong>Duracion estimada: ${e.duracion}${e.unidadDuracion}</strong></p>
+                        <p><strong>Precio: $${e.precio}</strong></p>
+                    </div>
+                    <img src="${e.imagen}">
+                </div>
+>>>>>>> pageUsuario
             </div>
         `;
     });
 }
 
+<<<<<<< HEAD
 function renderizarServiciosSelect() {
     let contenedor = $("#slcServicios");
     contenedor.innerHTML = "";
@@ -122,6 +145,13 @@ function renderizarBarberosSection() {
         contenedor.innerHTML += `
             <div class="box">
                 <img class="bg-secondary d-block mb-3 mx-auto img-fluid" src="${b.foto}">
+=======
+function importar_barberos() {
+    barberos.forEach(e => {
+        $("#barberos").innerHTML += `
+            <div class="box d-flex align-items-start justify-content-start flex-column">
+                <img class="bg-secondary d-block mb-3 mx-auto" src="${e.foto}">
+>>>>>>> pageUsuario
                 <div class="text-start pb-5">
                     <h4>${b.nombre}</h4>
                     <p>${b.descripcion}</p>
@@ -154,6 +184,7 @@ function importar_data() {
     renderizarBarberosSelect();
 }
 
+<<<<<<< HEAD
 function precargaDatos() {
     const barberos = [
         new Barbero("Imgs/npc.jpg", "nombre1", "desc1", 5),
@@ -203,3 +234,6 @@ function mapa(){
         .openPopup();
 
 }
+=======
+localStorage.setItem("datos", JSON.stringify(reservas));
+>>>>>>> pageUsuario

@@ -1,20 +1,22 @@
-/* Definición de variables globales */
 :root {
-  --color-principal: #2C2C2C;
-  --color-secundario: #D9D9D9;
-  --color-texto: #FFFFFF;
+  --bg-form-login: #302c2c;
+  --color-form-login: #fff;
 }
 
-
-#GestReservas{
-    background-color: var(--color-principal);
-    color: var(--color-texto);
+body {
+    background: #585959;
 }
 
-#DivReservas{
-    padding: 35px;
+#formLogin {
+    background: var(--bg-form-login);
+    color: var(--color-form-login);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
+<<<<<<< HEAD
 .tamCard{
     width: auto;
     margin-top: 15px;
@@ -42,3 +44,11 @@ nav ul li a {
     text-decoration: none;
     color: white;
 }
+=======
+@media (max-width: 700px) {
+    #formLogin {
+        width: calc(100% - 5em);
+        height: calc(100% - 5em);
+    }
+}
+>>>>>>> pageUsuario

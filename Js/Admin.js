@@ -16,8 +16,6 @@ function cargarBarberosAdmin(){
     }
 }
 
-
-
 document.querySelector("#btnFiltrar").addEventListener("click", filtrarReservas);
 function filtrarReservas(){
     

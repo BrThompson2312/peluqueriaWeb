@@ -9,6 +9,7 @@
     --bg-promociones: #D9D9D9;
     --bg-servicios: #969393;
     --bg-barberos: #434343;
+    --bg-formReservar: #2C2C2C;
     --bg-formReservar-input: #D9D9D9;
 }
 
@@ -22,7 +23,7 @@ nav ul {
     padding: 0;
 }
 
-nav ul li a {
+a {
     text-decoration: none;
     color: white;
 }
@@ -47,14 +48,17 @@ nav ul li a {
     z-index: 1;
 }
 
-.portada h1, 
-.portada h3 {
+.portada :where(h1, h3) {
     margin: 0;
     padding: 0;
 }
 
 main section {
     text-align: center;
+}
+
+main section h1 {
+    padding-top: 0.5em;
 }
 
 .wrapper-box {
@@ -66,23 +70,39 @@ main section {
     padding: 1em 0 1em 0;
 }
 
-main section h1 {
-    padding: 0;
-    margin: 0;
-    padding-top: 0.5em;
-}
-
-.promociones {
-    background-color: #D9D9D9;
-}
-.promociones .box {
+.box {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 1em;
     gap: 1em;
 }
 
-.servicios {
-    background-color: #969393;
+.box:where(h1, p) {
+    margin: 0;
+    padding: 0;
 }
-.servicios .box > div img {
+
+
+
+.promociones {
+    background: var(--bg-promociones);
+}
+
+.servicios {
+    background-color: var(--bg-servicios);
+}
+
+.barberos {
+    background-color: #434343;
+    color: white;
+}
+
+.form-reservar {
+    background-color: var(--bg-formReservar);
+    color: white;
+}
+
+.servicios .box img {
     aspect-ratio: 2/2;
     border-radius: 1em;
 }
@@ -97,6 +117,9 @@ main section h1 {
     .box {
         width: calc((100% / 2) - 1em);
     }
+    .form-reservar .box {
+        width: 50%;
+    }
 }
 @media (max-width: 75em) {
     .servicios .box > div {
@@ -107,59 +130,26 @@ main section h1 {
     }
 }
 @media (min-width: 75em) {
-    .wrapper-box {
-        margin: 0 10em 0 10em;
-    }
     .box {
         width: calc((100% / 3) - 1em);
     }
-    :where(.servicios) .box {
-        width: calc((100% / 2) - 1em);
+    :where(.servicios, .barberos) .box {
+        width: calc(50% - 1em);
     }
-    :where(.barberos, .form-reservar) .box {
-        width: 40%;
-    }
-}
-
-.barberos {
-    background-color: #434343;
-    color: white;
 }
 
 .barberos .box img{
-    width: 100%;
-}
-
-.form-reservar {
-    background-color: #2C2C2C;
-    color: white;
+    width: calc(100% - 5em);
 }
 
 .form-reservar .box {
     background-color: initial;
     text-align: start;
-}
-
-/* .form-reservar form > div {
     display: flex;
-    flex-wrap: wrap;
-} */
+    flex-direction: column;
+    gap: 0.5em;
+}
 
 .form-reservar .box :where(input, select) {
     background-color: var(--bg-formReservar-input);
-}
-
-.box {
-    background-color: #fff;
-    padding: 1em;
-    border-radius: 1em;
-}
-
-.form-reservar .box label {
-    margin-bottom: 0.5em;
-}
-
-.box:where(h1, p) {
-    margin: 0;
-    padding: 0;
 }

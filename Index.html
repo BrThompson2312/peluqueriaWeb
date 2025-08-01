@@ -15,43 +15,44 @@
             </ul>
             <ul class="d-flex align-items-center gap-3">
                 <li><a href="#promociones">Promociones</a></li>
-                <li><a href="#barberos">Barberos</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#barberos">Barberos</a></li>
+                <li><a href="#reservar">Reservar</a></li>
                 <li class="bg-white rounded-2 text-dark p-2"><a href="Login.html" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
         <section class="portada d-flex align-items-center justify-content-center flex-column">
             <h1>Estilo Clasico</h1>
             <h3 class="text-secondary mb-2">Barberia</h3>
-            <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1">Reserva</button>
+            <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1"><a href="#reservar" class="text-dark">Reservar</a></button>
         </section>
     </header>
     <main>
         <section class="promociones">
             <h1>Promociones</h1>
 
-            <div class="wrapper-box" id="promociones">
+            <div class="container-xl wrapper-box" id="promociones">
             </div>
         </section>
 
         <section class="servicios">
             <h1>Servicios</h1>
             
-            <div class="wrapper-box" id="servicios">
+            <div class="container-xl wrapper-box" id="servicios">
             </div>
         </section>
 
         <section class="barberos">
             <h1>Barberos</h1>
 
-            <div class="wrapper-box text-dark" id="barberos">
+            <div class="container-xl wrapper-box text-dark" id="barberos">
             </div>
         </section>
 
-        <section class="form-reservar">
+        <section id="reservar" class="form-reservar">
             <h1>Reserva</h1>
-            <form>
-                <div class="d-flex flex-wrap justify-content-center">
+            <form class="container-xl">
+                <div class="d-flex flex-wrap">
                     <div class="box form-group">
                         <label>Nombre</label>
                         <input class="form-control" name="Nombre">
@@ -67,10 +68,6 @@
                     <div class="box">
                         <label>Barbero</label>
                         <select id="Barbero" class="form-select">
-                            <option selected>Seleccione barbero</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                     <div class="box">
@@ -84,10 +81,6 @@
                     <div class="box">
                         <label>Servicio</label>
                         <select id="Servicio" class="form-select">
-                            <option selected>Seleccione servicio</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                         </select>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import { crearReserva } from "./crearReserva.js";
 
-document.querySelector("#formReserva").addEventListener("submit", function (event) {
+document.querySelector("#formReserva form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const formData = new FormData(this);

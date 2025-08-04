@@ -18,7 +18,7 @@
                 <li><a href="#promociones">Promociones</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#barberos">Barberos</a></li>
-                <li><a href="#reservar">Reservar</a></li>
+                <li><a href="#formReserva">Reservar</a></li>
                 <li class="bg-white rounded-2 text-dark p-2"><a href="Login.html" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
@@ -50,7 +50,7 @@
             </div>
         </section>
 
-        <section id="reservar" class="form-reservar">
+        <section id="formReserva">
             <h1>Reserva</h1>
             <form class="container-xl">
                 <div class="d-flex flex-wrap">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="box">
                         <label>Barbero</label>
-                        <select id="Barbero" class="form-select">
+                        <select id="slcBarberos" class="form-select">
                         </select>
                     </div>
                     <div class="box">
@@ -79,32 +79,26 @@
                         <label>Fecha</label>
                         <input class="form-control" name="Fecha">
                     </div>
-                    
-                    <div class="box">
+                    <div class="box w-100">
                         <label>Servicio</label>
-                        <select id="Servicio" class="form-select">
-                        </select>
+                        <div id="slcServicios">
+                        </div>
                     </div>
                 </div>
                 <button style="width: 10em; font-weight: bold" class="btn bg-white text-dark rounded-2 p-1 mt-3 mb-3">Reservar</button>
             </form>
             <div id="mensaje-exito" class="text-success mt-3" style="display: none; font-weight: bold;"></div>
         </section>
-
         <section id="contacto">
             <h1>Ubicacion</h1>
-            <div class="container">
-                <div class="row">   
-                    <div class="col-md-12">                        
-                        <div id="map" style="height: 300px;"> </div>
-                    </div>
+            <div class="container mb-3">
+                <div id="map" class="mx-auto" style="width: 500px; height: 500px;"> </div>
             </div>        
         </section>
-
     </main>
 
     <footer class="bg-dark text-white p-3 text-center">
-        <ul class="nav d-flex align-items-center gap-3">
+        <ul class="nav d-flex align-items-center justify-content-center gap-3">
             <li>
                 <a href="https://x.com/?lang=es" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">

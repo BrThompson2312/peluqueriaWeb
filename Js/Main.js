@@ -41,7 +41,6 @@ function renderizarServiciosSection() {
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
     servicios.forEach(e => {
-        debugger;
         const imagenSrc = e.imagen ? e.imagen : "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
         contenedor.innerHTML += `
             <div class="box">

@@ -6,7 +6,7 @@ export class Servicio {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracion = duracion;
-        this.unidadDuracion = unidadDuracion;
+        //this.unidadDuracion = unidadDuracion;
         this.precio = precio;
         this.imagen = imagen;
         servicioId++;

@@ -1,5 +1,7 @@
 import { Login } from "./auth.js";
 
+let errorTimeout;
+
 document.addEventListener("DOMContentLoaded", () => {
     if (isLogged()) {
         alert("Ya esta logueado");
@@ -9,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector("#form-login").addEventListener("submit", function (event) {
     event.preventDefault();
+    clearTimeout(errorTimeout);
     const form = document.getElementById("form-login");
 
     let email = form.elements.txtEmail.value;
@@ -19,11 +22,12 @@ document.querySelector("#form-login").addEventListener("submit", function (event
 
     if (message) {
         const error = document.getElementById("error1");
-        error.innerHTML = message;
+        error.innerHTML = message.message;
         error.style.display = "block";
 
-        setTimeout(() => {
+        errorTimeout = setTimeout(() => {
             error.style.display = "none";
+            error.innerText = "";
         }, 3000);
     } else {
         success.style.display = "block";

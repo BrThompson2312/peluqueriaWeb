@@ -17,7 +17,7 @@ export function crearReserva(formData, reservasExistentes = [], serviciosDisponi
         formData.get("Fecha"),
         formData.get("Hora"),
         serviciosSeleccionados,
-        formData.get("barberos"),
+        formData.get("Barbero"),
         serviciosDisponibles
     );
 

@@ -3,13 +3,13 @@ let adminPass = "juan1234";
 
 export function Login(email, password) {
     if (email === "")
-        return Error("Email no puede ser nulo");
+        return { error: true, msg: "Email no puede ser nulo" };
 
-    if(password === "")
-        return Error("Contraseña no puede ser nula");
+    if (password === "")
+        return { error: true, msg: "Contraseña no puede ser nula" };
 
-    if (email != adminEmail || password != adminPass)
-        return Error("Credenciales invalidas");
+    if (email !== adminEmail || password !== adminPass)
+        return { error: true, msg: "Credenciales invalidas" };
 
-    return;
+    return { error: false };
 }

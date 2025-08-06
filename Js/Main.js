@@ -39,7 +39,7 @@ function renderizarServiciosSection() {
     servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
     servicios.forEach(e => {
-        const imagenSrc = e.imagen ? e.imagen : "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
+        const imagenSrc = e.imagen ?? "Imgs/npc.jpg"; // Usa una imagen por defecto si falta
         contenedor.innerHTML += `
             <div class="box">
                 <div>
@@ -120,7 +120,7 @@ function renderizarBarberosSection() {
                 <div class="text-start pb-5">
                     <h4>${b.nombre}</h4>
                     <p>${b.descripcion}</p>
-                    <p>${b.puntaje}</p>
+                    <p>Calificación: ${b.puntaje}</p>
                 </div>
             </div>
         `;
@@ -151,10 +151,10 @@ function importar_data() {
 
 function precargaDatos() {
     const barberos = [
-        new Barbero("Imgs/npc.jpg", "nombre1", "desc1", 5),
-        new Barbero("Imgs/npc.jpg", "nombre2", "desc2", 5),
-        new Barbero("Imgs/npc.jpg", "nombre3", "desc3", 5),
-        new Barbero("Imgs/npc.jpg", "nombre4", "desc4", 5),
+        new Barbero("Imgs/npc.jpg", "Mateo Rodríguez", "Especialista en cortes modernos y degradados, Mateo combina precisión con estilo urbano. Es conocido por su habilidad con la máquina y su atención al detalle en cada línea.", 5),
+        new Barbero("Imgs/npc.jpg", "Lucas Fernández", "Barbero tradicional con más de 10 años de experiencia, Lucas se destaca en arreglos de barba, afeitado a navaja y cortes clásicos.", 4.0),
+        new Barbero("Imgs/npc.jpg", "Tomás Pereira", "Apasionado por las últimas tendencias, Tomás ofrece cortes creativos y diseños personalizados. Ideal para quienes buscan un look único y a la moda.", 4.5),
+        new Barbero("Imgs/npc.jpg", "Nicolás Duarte", "Experto en transformación de imagen, Nicolás trabaja con cada cliente para adaptar el corte a su estilo de vida y forma de rostro. Profesional y detallista, siempre enfocado en resultados impecables.", 5),
     ];
 
     if (!localStorage.getItem("barberos")) {

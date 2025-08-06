@@ -20,9 +20,9 @@ document.querySelector("#form-login").addEventListener("submit", function (event
     const message = Login(email, password);
     const success = document.getElementById("success");
 
-    if (message) {
+    if (message.error) {
         const error = document.getElementById("error1");
-        error.innerHTML = message.message;
+        error.innerHTML = message.msg;
         error.style.display = "block";
 
         errorTimeout = setTimeout(() => {
@@ -31,7 +31,7 @@ document.querySelector("#form-login").addEventListener("submit", function (event
         }, 3000);
     } else {
         success.style.display = "block";
-        success.innerHTML = message;
+        success.innerHTML = message.msg;
         localStorage.setItem("logueado", "true");
         window.location.href = "Admin.html";
 

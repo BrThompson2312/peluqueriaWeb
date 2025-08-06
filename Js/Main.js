@@ -10,7 +10,6 @@ let promociones = [];
 document.addEventListener("DOMContentLoaded", (event) => {
     precargaDatos();
     importar_data();
-
 });
 
 function renderizarPromocionesSection() {
@@ -25,7 +24,7 @@ function renderizarPromocionesSection() {
                 <div>
                     <h3>${p.nombre}</h3>
                     <p>${p.descripcion}</p>
-                    <p><strong>Precio: ${p.precio}<strong></p>
+                    <p><strong>Precio: $${p.precio}<strong></p>
                 </div>
             </div>
         `;
@@ -33,7 +32,6 @@ function renderizarPromocionesSection() {
 }
 
 //Servicios
-
 function renderizarServiciosSection() {
     let contenedor = $("#servicios");
     contenedor.innerHTML = "";
@@ -48,7 +46,7 @@ function renderizarServiciosSection() {
                     <h3>${e.nombre}</h3>
                     <p>${e.descripcion}</p>
                     <p><strong>Duración estimada: ${e.duracion}</strong></p>
-                    <p><strong>Precio: ${e.precio}</strong></p>
+                    <p><strong>Precio: $${e.precio}</strong></p>
                 </div>
                 <img class="img-fluid" src=${imagenSrc}>
             </div>
@@ -108,9 +106,7 @@ function renderizarServiciosSelect() {
 
 }
 
-
 //Barberos
-
 function renderizarBarberosSection() {
     let contenedor = $("#barberos");
     contenedor.innerHTML = "";
@@ -133,7 +129,7 @@ function renderizarBarberosSection() {
 
 function renderizarBarberosSelect() {
     let select = $('#slcBarberos');
-    select.innerHTML = '';
+    select.innerHTML = '<option>Seleccione un barbero...</option>';
 
     barberos = JSON.parse(localStorage.getItem("barberos")) || [];
 
@@ -187,9 +183,6 @@ function precargaDatos() {
     }
 }
 
-
-mapa();
-
 function mapa(){
     var map = L.map('map').setView([-34.9011, -56.1645], 13); // Montevideo
 
@@ -200,5 +193,5 @@ function mapa(){
     L.marker([-34.9011, -56.1645]).addTo(map)
         .bindPopup('Estilo Clasico')
         .openPopup();
-
 }
+mapa();

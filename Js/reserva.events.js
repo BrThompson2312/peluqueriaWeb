@@ -1,6 +1,6 @@
 import { crearReserva } from "./crearReserva.js";
 
-document.querySelector("#formReserva").addEventListener("submit", function (event) {
+document.querySelector("#formReserva form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const formData = new FormData(this);
@@ -15,7 +15,6 @@ document.querySelector("#formReserva").addEventListener("submit", function (even
     localStorage.setItem("reservas", JSON.stringify(resultado.reservas));
 
     const exito = document.querySelector("#mensaje-exito");
-    exito.textContent = "¡Reserva realizada correctamente!";
     exito.style.display = "block";
 
     limpiarFormularioReserva();
@@ -84,9 +83,8 @@ function mostrarErroresReserva(errores) {
 }
 
 function limpiarFormularioReserva() {
-    const formulario = document.querySelector("#formReserva");
+    const formulario = document.querySelector("#formReserva form");
     formulario.reset();
-
     formulario.querySelectorAll(".is-invalid").forEach(campo => campo.classList.remove("is-invalid"));
     formulario.querySelectorAll(".error-msg").forEach(msg => msg.remove());
 }

@@ -67,7 +67,6 @@ main section h1 {
 
 .wrapper-box {
     display: flex;
-    align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1em;
@@ -86,8 +85,6 @@ main section h1 {
     padding: 0;
 }
 
-
-
 .promociones {
     background: var(--bg-promociones);
 }
@@ -101,13 +98,12 @@ main section h1 {
     color: white;
 }
 
-.form-reservar {
+#formReserva {
     background-color: var(--bg-formReservar);
     color: white;
 }
 
 .servicios .box img {
-    aspect-ratio: 2/2;
     border-radius: 1em;
 }
 
@@ -121,7 +117,7 @@ main section h1 {
     .box {
         width: calc((100% / 2) - 1em);
     }
-    .form-reservar .box {
+    #formReserva .box {
         width: 50%;
     }
 }
@@ -135,18 +131,19 @@ main section h1 {
 }
 @media (min-width: 75em) {
     .box {
-        width: calc((100% / 3) - 1em);
+        width: calc((100% / 3) - 2em);
     }
     :where(.servicios, .barberos) .box {
         width: calc(50% - 1em);
+        height: fit-content;
     }
 }
 
 .barberos .box img{
-    width: calc(100% - 5em);
+    width: 50%;
 }
 
-.form-reservar .box {
+#formReserva .box {
     background-color: initial;
     text-align: start;
     display: flex;
@@ -154,6 +151,37 @@ main section h1 {
     gap: 0.5em;
 }
 
-.form-reservar .box :where(input, select) {
+#formReserva .box :where(input, select) {
     background-color: var(--bg-formReservar-input);
+}
+
+#mensaje-exito {
+    display: none; 
+    font-weight: bold;
+}
+
+#slcServicios label {
+    display: block;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    user-select: none;
+}
+
+#slcServicios label.seleccionada {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.is-invalid {
+    border: 2px solid red !important;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
 }

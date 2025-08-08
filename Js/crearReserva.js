@@ -17,7 +17,7 @@ export function crearReserva(formData, reservasExistentes = [], serviciosDisponi
         formData.get("Fecha"),
         formData.get("Hora"),
         serviciosSeleccionados,
-        formData.get("barberos"),
+        formData.get("Barbero"),
         serviciosDisponibles
     );
 
@@ -62,7 +62,7 @@ function validarDatosReserva(formData, serviciosDisponibles = null, reservasExis
         errores.Servicios = "Seleccioná al menos un servicio";
     }
 
-    const barbero = formData.get("barberos") || document.querySelector("#slcBarberos")?.value;
+    const barbero = formData.get("Barbero") || document.querySelector("#slcBarberos")?.value;
     if (!barbero) {
         errores.Barbero = "Seleccioná un barbero";
     }

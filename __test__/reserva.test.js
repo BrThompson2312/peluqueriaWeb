@@ -28,8 +28,6 @@ describe('reserva test', () => {
     const reservasIniciales = [];
     const respuesta = crearReserva(formData, reservasIniciales, serviciosDisponibles);
 
-    console.log(respuesta);
-
     expect(respuesta.reservas.length).toBe(1);
 
     expect(respuesta.reservas[0].duracion).toBe(50);
@@ -60,8 +58,6 @@ describe('reserva test', () => {
     expect(respuesta.reservas.length).toBe(1);
 
     respuesta = crearReserva(badFormData, reservasIniciales, serviciosDisponibles);
-
-    console.log(respuesta);
 
     expect(respuesta.ok).toBeFalsy();
     expect(respuesta.errores).toHaveProperty("Hora", 'Horario ocupado');
@@ -94,4 +90,5 @@ describe('reserva test', () => {
     expect(respuesta.ok).toBeFalsy();
     expect(respuesta.errores).toHaveProperty("Email", 'Email inválido');
   })
+
 });

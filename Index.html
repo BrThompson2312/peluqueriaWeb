@@ -9,17 +9,16 @@
     <link rel="stylesheet" type="text/css" href="Css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="text-white d-flex flex-column flex-sm-row align-items-center justify-content-between p-2 position-fixed w-100 z-2">
+    <header id="header">
+        <nav class="text-white d-flex flex-column flex-md-row align-items-center justify-content-between p-2 position-fixed w-100 z-2">
             <ul>
-                <li class="bg-white rounded-5"><a href=""><img src="Imgs/logo.png" style="width: 4em"></a></li>
+                <li class="bg-white rounded-5"><a href="#header"><img src="Imgs/logo.png" style="width: 4em"></a></li>
             </ul>
-            <ul class="d-flex align-items-center gap-3">
-                <li><a href="#promociones">Promociones</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#barberos">Barberos</a></li>
+            <ul class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+                <li><a href="#sec-promociones">Promociones</a></li>
+                <li><a href="#sec-servicios">Servicios</a></li>
+                <li><a href="#sec-barberos">Barberos</a></li>
                 <li><a href="#formReserva">Reservar</a></li>
-                <li><a href="#redesSociales">Redes Sociales</a></li>
                 <li class="bg-white rounded-2 text-dark p-2"><a href="Login.html" class="text-dark">Sign In</a></li>
             </ul>
         </nav>
@@ -29,22 +28,22 @@
             <button style="width: 10em" class="btn bg-white text-dark rounded-2 p-1"><a href="#formReserva" class="text-dark">Reservar</a></button>
         </section>
     </header>
-    <main>
-        <section class="promociones">
+    <main class="z-0">
+        <section id="sec-promociones" class="promociones">
             <h1>Promociones</h1>
 
             <div class="container-xl wrapper-box" id="promociones">
             </div>
         </section>
 
-        <section class="servicios">
+        <section id="sec-servicios" class="servicios">
             <h1>Servicios</h1>
             
             <div class="container-xl wrapper-box" id="servicios">
             </div>
         </section>
 
-        <section class="barberos">
+        <section id="sec-barberos" class="barberos">
             <h1>Barberos</h1>
 
             <div class="container-xl wrapper-box text-dark" id="barberos">
@@ -90,16 +89,17 @@
             </form>
             <div id="mensaje-exito" class="text-success mt-2">¡Reserva realizada correctamente!</div>
         </section>
-        <section id="contacto">
+
+        <section id="contacto" class="bg-dark text-white">
             <h1>Ubicacion</h1>
-            <div class="container mb-3">
-                <div id="map" class="mx-auto" style="width: 500px; height: 500px;"> </div>
+            <div class="container-xl py-3 mx-auto row">
+                <div id="map" class="mx-auto mb-5 rounded-5 z-0 col-md-12 mx-auto" style="height: 20em"></div>
             </div>        
         </section>
     </main>
 
-    <footer id="redesSociales" class="bg-dark text-white p-3 text-center">
-        <ul class="nav d-flex align-items-center justify-content-center gap-3">
+    <footer id="redesSociales" class="text-white text-center">
+        <ul class="nav d-flex align-items-center justify-content-center gap-3 bg-black position-fixed h-auto bottom-0 z-5 w-100 p-3">
             <li>
                 <a href="https://x.com/?lang=es" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">

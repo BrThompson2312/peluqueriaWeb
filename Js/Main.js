@@ -8,6 +8,7 @@ let servicios = [];
 let promociones = [];
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    localStorage.clear(); // Temporal
     precargaDatos();
     importar_data();
 });
@@ -45,7 +46,7 @@ function renderizarServiciosSection() {
                 <div>
                     <h3>${e.nombre}</h3>
                     <p>${e.descripcion}</p>
-                    <p><strong>Duración estimada: ${e.duracion}</strong></p>
+                    <p><strong>Duración estimada: ${e.duracion}min</strong></p>
                     <p><strong>Precio: $${e.precio}</strong></p>
                 </div>
                 <img class="img-fluid" src=${imagenSrc}>

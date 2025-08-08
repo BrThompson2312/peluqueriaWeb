@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     barberos = JSON.parse(localStorage.getItem("barberos")) || [];
     reservas = JSON.parse(localStorage.getItem("reservas")) || [];
 
+    if(reservas == ""){
+        const mensaje = document.querySelector("#message");
+        mensaje.innerHTML = "No hay reservas";
+        mensaje.style.display = "block";
+    }
+
     cargarBarberosAdmin();
     filtrarReservas();
 });

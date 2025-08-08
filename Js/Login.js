@@ -1,5 +1,7 @@
 import { Login } from "./auth.js";
 
+let errorTimeout;
+
 document.addEventListener("DOMContentLoaded", () => {
     if (isLogged()) {
         alert("Ya esta logueado");
@@ -9,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector("#form-login").addEventListener("submit", function (event) {
     event.preventDefault();
+    clearTimeout(errorTimeout);
     const form = document.getElementById("form-login");
 
     let email = form.elements.txtEmail.value;
@@ -17,17 +20,18 @@ document.querySelector("#form-login").addEventListener("submit", function (event
     const message = Login(email, password);
     const success = document.getElementById("success");
 
-    if (message) {
+    if (message.error) {
         const error = document.getElementById("error1");
-        error.innerHTML = message;
+        error.innerHTML = message.msg;
         error.style.display = "block";
 
-        setTimeout(() => {
+        errorTimeout = setTimeout(() => {
             error.style.display = "none";
+            error.innerText = "";
         }, 3000);
     } else {
         success.style.display = "block";
-        success.innerHTML = message;
+        success.innerHTML = message.msg;
         localStorage.setItem("logueado", "true");
         window.location.href = "Admin.html";
 

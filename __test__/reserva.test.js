@@ -89,8 +89,6 @@ describe('reserva test', () => {
 
     let respuesta = crearReserva(badEmailForm, reservasIniciales, serviciosDisponibles);
 
-    console.log(respuesta);
-
     expect(respuesta.ok).toBeFalsy();
     expect(respuesta.errores).toHaveProperty("Email", 'Email inválido');
   })

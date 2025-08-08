@@ -49,10 +49,17 @@ function filtrarReservas() {
     }
 
     $("#DivReservas").innerHTML = "";
+    const mensaje = document.querySelector("#message");
 
-    reservasFiltradas.forEach(e => {
-        let barbero = barberos.find(b => b.barberoId == e.barbero);
-        $("#DivReservas").innerHTML += `
+    if (reservasFiltradas == "") {
+        mensaje.innerHTML = "No hay reservas";
+        mensaje.style.display = "block";
+    } else {
+        mensaje.style.display = "none";
+        
+        reservasFiltradas.forEach(e => {
+            let barbero = barberos.find(b => b.barberoId == e.barbero);
+            $("#DivReservas").innerHTML += `
         <div class="col-12 col-md-6 col-lg-4 mb-4">
             <div class="card shadow rounded border-start border-4 border-danger h-100">
                 <div class="card-body">
@@ -70,8 +77,8 @@ function filtrarReservas() {
             </div>
         </div>
     `;
-    });
-
+        });
+    }
 }
 
 function isLogged() {

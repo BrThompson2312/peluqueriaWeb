@@ -14,7 +14,7 @@ describe('reserva test', () => {
         Email: "sebastian@mail.com",
         Fecha: "2025-08-01",
         Hora: "10:00",
-        barberos: "1",
+        Barbero: "1",
       };
       return datos[campo];
     },
@@ -44,7 +44,7 @@ describe('reserva test', () => {
           Email: "juan@gmail.com",
           Fecha: "2025-08-01",
           Hora: "10:20",
-          barberos: "1",
+          Barbero: "1",
         };
         return datos[campo];
       },
@@ -61,6 +61,8 @@ describe('reserva test', () => {
 
     respuesta = crearReserva(badFormData, reservasIniciales, serviciosDisponibles);
 
+    console.log(respuesta);
+
     expect(respuesta.ok).toBeFalsy();
     expect(respuesta.errores).toHaveProperty("Hora", 'Horario ocupado');
 
@@ -75,7 +77,7 @@ describe('reserva test', () => {
           Email: "juan@gmail",
           Fecha: "2025-08-01",
           Hora: "10:10",
-          barberos: "1",
+          Barbero: "1",
         };
         return datos[campo];
       },

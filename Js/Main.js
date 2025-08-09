@@ -8,7 +8,7 @@ let servicios = [];
 let promociones = [];
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    localStorage.clear(); // Temporal
+    // localStorage.clear(); // Temporal
     precargaDatos();
     importar_data();
 });
